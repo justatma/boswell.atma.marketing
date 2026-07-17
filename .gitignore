@@ -1,2 +1,8 @@
 .DS_Store
 .DS_Store
+
+# Boswell Engine — client work product, never publish
+clients/
+inbox/
+runs/
+documents/
