@@ -6,3 +6,5 @@ clients/
 inbox/
 runs/
 documents/
+venv/
+.DS_Store
