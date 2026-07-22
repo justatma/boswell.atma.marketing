@@ -1,0 +1,33 @@
+# Cache policy for boswell.atma.marketing (Apache / GoDaddy)
+#
+# The problem this solves: the pages here are self-contained HTML bundles with no
+# external assets, so when a page changes, a returning visitor can keep seeing the old
+# cached copy until their browser happens to give up on it. We want them to always get
+# the current version, without re-downloading a ~1MB file when nothing changed.
+#
+# The fix: tell the browser to REVALIDATE the HTML on every visit. "no-cache" is
+# misnamed — it does not mean "never cache." It means "you may cache this, but you must
+# check with the server (using the ETag / Last-Modified fingerprint) before reusing it."
+# If the page is unchanged, the server answers 304 Not Modified, a tiny response, and the
+# browser reuses its copy. If the page changed, the server sends the new one in full. So:
+# always current, never a needless re-download.
+#
+# This lives as its own file on purpose. The HTML pages are re-exported by the designer,
+# which would wipe any cache logic placed inside them; this file is untouched by that.
+
+<IfModule mod_headers.c>
+  # HTML documents: always revalidate.
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # og.png can be updated too; revalidate it the same way so social previews refresh.
+  <FilesMatch "\.(png|xml|txt)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ETags let the revalidation above be cheap. Apache sets these by default for static
+# files; this makes it explicit and content-based (size + mtime), and the FTP deploy only
+# re-uploads files that actually changed, so an unchanged page keeps its fingerprint.
+FileETag MTime Size
