@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boswell.atma.marketing/sitemap.xml
