@@ -30,17 +30,739 @@
     #__bundler_thumbnail svg { width: 100%; height: 100%; object-fit: contain; }
     #__bundler_placeholder { color: #999; font-size: 14px; }
   </style>
-  <noscript>
-    <style>#__bundler_loading { display: none; }</style>
-    <div style="position:fixed;bottom:12px;left:12px;font:13px/1.4 -apple-system,BlinkMacSystemFont,sans-serif;color:#999;background:rgba(255,255,255,0.9);padding:6px 12px;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.08);z-index:10000;">
-      This page requires JavaScript to display.
-    </div>
-  </noscript>
+  
 </head>
 <body>
-  <noscript><article style="max-width:720px;margin:0 auto;padding:32px 24px;font-family:Georgia,serif;line-height:1.6;color:#201E17;background:#F1ECDF"><p><a href="index.html">The Boswell Engine</a> &middot; <a href="outreach.html">B2B outreach</a></p><h1>The Boswell Engine&rsquo;s Architecture.</h1><p>An outreach engine that reads a person before it writes to them. It ranks a list, researches each lead, models how they think and speak, decides what to say, writes every piece, and checks its own work.</p><p>This page is an animated diagram of the B2B outreach workflow and needs JavaScript to play. The stages, in order: three setup steps, then the steps every person on the list passes through.</p><ol><li><strong>The offer.</strong> What they sell, and every claim we're allowed to make</li><li><strong>The rubric.</strong> Who it's for, and who it's never for</li><li><strong>Client's voice.</strong> How the client writes, and what they'd never say</li><li><strong>The list.</strong> Names in, plus the relationship and function tags</li><li><strong>First cut.</strong> Pass, kill, or gray. No score.</li><li><strong>Collect all public content.</strong> Everything they've said in public</li><li><strong>Linguistic model.</strong> How they say it</li><li><strong>World view model.</strong> What they mean when they say it</li><li><strong>Cognitive model.</strong> How they think about it</li><li><strong>Fact Checker.</strong> A rival LLM verifies all claims</li><li><strong>Go/no-go list.</strong> If the data says no, they go</li><li><strong>The tactical assessment.</strong> What to say, and why it lands</li><li><strong>Hyper-targeted content.</strong> Messaging built from their cognitive profile</li><li><strong>Editorial and copy analysis.</strong> Two tests: i. usage violations, ii. poor writing</li><li><strong>The record of it all.</strong> A CRM and history of each person's progression</li></ol></article></noscript>
+  
   <div id="__bundler_thumbnail"><svg sc-camel-view-box="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#EEE6D5"></rect><line x1="42" y1="32" x2="42" y2="68" stroke="#201E17" stroke-width="2"></line><line x1="42" y1="50" x2="62" y2="50" stroke="#201E17" stroke-width="2"></line><rect x="33" y="30" width="18" height="9" fill="#A6552F" stroke="#201E17" stroke-width="1.5"></rect><rect x="33" y="45" width="18" height="9" fill="#2F7068" stroke="#201E17" stroke-width="1.5"></rect><rect x="33" y="61" width="18" height="9" fill="#F5F1E8" stroke="#201E17" stroke-width="1.5"></rect><rect x="60" y="46" width="12" height="8" fill="#A62F22" stroke="#201E17" stroke-width="1.5"></rect></svg></div>
-  <div id="__bundler_loading">Unpacking...</div>
+  <div id="__prerender"><style>#__bundler_thumbnail,#__bundler_loading{display:none!important}body{display:block!important;min-height:0!important}</style><style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  </style>
+<style>x-dc{display:none!important}</style>
+<style data-dc-tpl="21">/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/r/442b3ec987e8c8bc.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/r/f3e3ef5f4a7c415a.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/r/f299d916ba0645d0.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/r/108d5090849a2316.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/r/2c9bacf0241b142b.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/r/f49291b79114d130.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/r/695a267637125d6d.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/r/062794e1a3ed5a44.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/r/24397a3e835b64cc.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/r/3a2668b94b5c1388.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/r/c314a25c3a2a12dd.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/r/1b68792e8dece97a.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/r/7925a2dd6c0c1a7c.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/r/535a3114a7240726.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/r/c11adc913024a1b9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/9ca21857f61899b3.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/8dacae5c528e55ee.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/2f7402315da7ef38.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/5a1e57036fa26dc1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/b480cc79afbdcccf.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/6148594dc0d91d92.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/9ca21857f61899b3.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/8dacae5c528e55ee.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/2f7402315da7ef38.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/5a1e57036fa26dc1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/b480cc79afbdcccf.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/6148594dc0d91d92.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/9ca21857f61899b3.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/8dacae5c528e55ee.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/2f7402315da7ef38.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/5a1e57036fa26dc1.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/b480cc79afbdcccf.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/r/6148594dc0d91d92.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style data-dc-tpl="22">
+  *{box-sizing:border-box;}
+  body{margin:0;background:#F2EEE4;}
+  a{color:#4A6A8F;text-decoration:none;}
+  a:hover{color:#35516E;}
+  .btn{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#201E17;background:#F2EEE4;border:1px solid #201E17;padding:5px 11px;cursor:pointer;line-height:1;}
+  .btn:hover{background:#201E17;color:#F2EEE4;}
+  input[type=range]{-webkit-appearance:none;appearance:none;height:2px;background:#7C7563;outline:none;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;background:#201E17;border:1px solid #201E17;cursor:pointer;}
+  input[type=range]::-moz-range-thumb{width:12px;height:12px;background:#201E17;border:1px solid #201E17;cursor:pointer;}
+</style>
+
+<div id="dc-root"><div class="sc-host" data-sc-name=".bundle-src-architecture"><div data-dc-tpl="23" style="font-family: &quot;IBM Plex Sans&quot;, system-ui, sans-serif; color: rgb(32, 30, 23); background: rgb(242, 238, 228);">
+
+  
+
+  
+  <div data-dc-tpl="24" style="position: sticky; top: 0px; z-index: 30; background: rgb(238, 233, 220); border-bottom: 1px solid rgb(32, 30, 23); display: flex; align-items: center; gap: 22px; padding: 9px 22px;">
+    <a data-dc-tpl="25" href="index.html" style="display: flex; flex-direction: column; gap: 1px; flex: 0 0 auto; color: rgb(32, 30, 23); text-decoration: none;">
+      <span data-dc-tpl="26" style="font-size: 15px; font-weight: 600; line-height: 1.1;">← The Boswell Engine</span>
+      <span data-dc-tpl="27" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(98, 92, 76);">B2B outreach workflow · back to the site</span>
+    </a>
+    <div data-dc-tpl="28" style="flex: 1 1 0%; display: flex; align-items: center; gap: 12px; min-width: 0px;">
+      <button data-dc-tpl="29" class="btn"><span class="sc-interp">Play</span></button>
+      <button data-dc-tpl="30" class="btn">Restart</button>
+      <input data-dc-tpl="31" type="range" min="0" max="45" value="0" style="flex: 1 1 0%; min-width: 80px;">
+      <button data-dc-tpl="32" class="btn"><span class="sc-interp">1x</span></button>
+      <span data-dc-tpl="33" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(98, 92, 76); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 120px;"><span class="sc-interp">Press play</span></span>
+    </div>
+    <div data-dc-tpl="34" style="flex: 0 0 auto; display: flex; gap: 16px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">
+      <span data-dc-tpl="35" style="color: rgb(98, 92, 76);">not contacted <span data-dc-tpl="36" style="color: rgb(32, 30, 23); font-weight: 600;"><span class="sc-interp">0</span></span></span>
+      <span data-dc-tpl="37" style="color: rgb(98, 92, 76);">finished <span data-dc-tpl="38" style="color: rgb(47, 112, 104); font-weight: 600;"><span class="sc-interp">0</span></span></span>
+    </div>
+  </div>
+
+  
+  <div data-dc-tpl="39" style="max-width: 1180px; margin: 0px auto; padding: 40px 48px 70px; background: linear-gradient(rgba(0, 0, 0, 0.027) 1px, transparent 1px) 0% 0% / 40px 40px, linear-gradient(90deg, rgba(0, 0, 0, 0.027) 1px, transparent 1px) rgb(242, 238, 228);">
+
+    
+    <div data-dc-tpl="40" style="border-bottom: 2px solid rgb(32, 30, 23); padding-bottom: 16px; margin-bottom: 24px;">
+      <div data-dc-tpl="41" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;">
+        <div data-dc-tpl="42" style="font-size: 15px; font-weight: 600; line-height: 1.5; max-width: 780px;">The Boswell Engine's Architecture <span data-dc-tpl="43" style="font-weight: 400; color: rgb(58, 54, 43);">- this blueprint demonstrates how the engine selects the most probable lead from a list · does a deep background · analyses how they think and speak · decides what to say and how · writes all the copy · checks its own work · and gets smarter the more you use it.</span></div>
+        <div data-dc-tpl="44" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(98, 92, 76); text-align: right; white-space: nowrap;">engine architecture<br data-dc-tpl="45">rev v0.5 / 2026-07-20</div>
+      </div>
+      <div data-dc-tpl="46" style="display: flex; gap: 40px; margin-top: 16px; flex-wrap: wrap;">
+        <div data-dc-tpl="47" style="display: flex; gap: 10px; align-items: baseline;"><span data-dc-tpl="48" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">01</span><span data-dc-tpl="49" style="font-size: 15px; font-weight: 600;">No single LLM can do this.</span><span data-dc-tpl="50" style="font-size: 12px; color: rgb(98, 92, 76);">Five AI models, three engineering tools. Each one checking and improving the others.</span></div>
+        <div data-dc-tpl="51" style="display: flex; gap: 10px; align-items: baseline;"><span data-dc-tpl="52" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">02</span><span data-dc-tpl="53" style="font-size: 15px; font-weight: 600;">Most names never get contacted.</span><span data-dc-tpl="54" style="font-size: 12px; color: rgb(98, 92, 76);">Nobody else sells that.</span></div>
+      </div>
+    </div>
+
+    
+    <div data-dc-tpl="55" style="display: flex; gap: 44px; flex-wrap: wrap; margin-bottom: 40px;">
+      
+      <div data-dc-tpl="56" style="flex: 1 1 0%; min-width: 420px;">
+        <div data-dc-tpl="57" style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;"><span data-dc-tpl="58" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">who runs each stage</span><span data-dc-tpl="59" style="flex: 1 1 0%; height: 1px; background: rgb(205, 197, 178);"></span></div>
+        <div data-dc-tpl="60" style="display: flex; flex-wrap: wrap; gap: 10px 22px;">
+          <div data-dc-tpl="61" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="62" style="width: 14px; height: 14px; background: rgb(32, 30, 23); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="63" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Human</span></div>
+          <div data-dc-tpl="64" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="65" style="width: 14px; height: 14px; background: rgb(138, 132, 119); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="66" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Python</span></div>
+          <div data-dc-tpl="67" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="68" style="width: 14px; height: 14px; background: rgb(168, 129, 47); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="69" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Exa</span></div>
+          <div data-dc-tpl="70" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="71" style="width: 14px; height: 14px; background: rgb(94, 87, 74); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="72" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Postgres</span></div>
+          <div data-dc-tpl="73" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="74" style="width: 14px; height: 14px; background: rgb(166, 85, 47); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="75" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Claude Opus 4.8</span></div>
+          <div data-dc-tpl="76" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="77" style="width: 14px; height: 14px; background: rgb(113, 62, 41); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="78" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Claude Fable 5</span></div>
+          <div data-dc-tpl="79" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="80" style="width: 14px; height: 14px; background: rgb(203, 154, 114); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="81" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Claude Haiku 4.5</span></div>
+          <div data-dc-tpl="82" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="83" style="width: 14px; height: 14px; background: rgb(74, 106, 143); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="84" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Gemini 3.1 Pro</span></div>
+          <div data-dc-tpl="85" style="display: flex; align-items: center; gap: 8px;"><span data-dc-tpl="86" style="width: 14px; height: 14px; background: rgb(47, 112, 104); border: 1px solid rgb(32, 30, 23); flex: 0 0 auto;"></span><span data-dc-tpl="87" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">GPT-5.4</span></div>
+        </div>
+        <p data-dc-tpl="88" style="font-size: 12px; line-height: 1.5; color: rgb(98, 92, 76); margin: 16px 0px 0px; max-width: 520px;">Anthropic reads, Google reads independently, OpenAI stress-tests and judges. Python is the plumbing. Exa is meaning-based search and the reason stage 3 works, and almost nobody outside the field has heard of it.</p>
+      </div>
+      
+      <div data-dc-tpl="89" style="flex: 0 0 auto; width: 430px;">
+        <div data-dc-tpl="90" style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;"><span data-dc-tpl="91" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">the rules of the engineer</span><span data-dc-tpl="92" style="flex: 1 1 0%; height: 1px; background: rgb(205, 197, 178);"></span></div>
+        <div data-dc-tpl="93" style="display: flex; flex-direction: column; gap: 9px;">
+          <div data-dc-tpl="94" style="display: flex; gap: 10px;"><span data-dc-tpl="95" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); flex: 0 0 auto;">L1</span><span data-dc-tpl="96" style="font-size: 12px; line-height: 1.45;"><span data-dc-tpl="97" style="color: rgb(32, 30, 23);">Never let a model check its own work.</span> <span data-dc-tpl="98" style="color: rgb(98, 92, 76);">It can't see its own tells.</span></span></div>
+          <div data-dc-tpl="99" style="display: flex; gap: 10px;"><span data-dc-tpl="100" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); flex: 0 0 auto;">L2</span><span data-dc-tpl="101" style="font-size: 12px; line-height: 1.45;"><span data-dc-tpl="102" style="color: rgb(32, 30, 23);">Compress nothing until the last step.</span> <span data-dc-tpl="103" style="color: rgb(98, 92, 76);">Each stage learns and builds on the complete work of the stage before.</span></span></div>
+          <div data-dc-tpl="104" style="display: flex; gap: 10px;"><span data-dc-tpl="105" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); flex: 0 0 auto;">L3</span><span data-dc-tpl="106" style="font-size: 12px; line-height: 1.45;"><span data-dc-tpl="107" style="color: rgb(32, 30, 23);">Find out who wrote it before you use it.</span> <span data-dc-tpl="108" style="color: rgb(98, 92, 76);">A chunk of what carries a person's name was written for them, not by them.</span></span></div>
+          <div data-dc-tpl="109" style="display: flex; gap: 10px;"><span data-dc-tpl="110" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); flex: 0 0 auto;">L4</span><span data-dc-tpl="111" style="font-size: 12px; line-height: 1.45;"><span data-dc-tpl="112" style="color: rgb(32, 30, 23);">Every data point we use gets double-checked and verified.</span> <span data-dc-tpl="113" style="color: rgb(98, 92, 76);">No source, no pass.</span></span></div>
+          <div data-dc-tpl="114" style="display: flex; gap: 10px;"><span data-dc-tpl="115" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); flex: 0 0 auto;">L5</span><span data-dc-tpl="116" style="font-size: 12px; line-height: 1.45;"><span data-dc-tpl="117" style="color: rgb(32, 30, 23);">Nothing is binary. Three states, not two.</span> <span data-dc-tpl="118" style="color: rgb(98, 92, 76);">Pass, kill, or we can't tell. The gray zone can go to a human.</span></span></div>
+          <div data-dc-tpl="119" style="display: flex; gap: 10px;"><span data-dc-tpl="120" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); flex: 0 0 auto;">L6</span><span data-dc-tpl="121" style="font-size: 12px; line-height: 1.45;"><span data-dc-tpl="122" style="color: rgb(32, 30, 23);">If a machine can't check it, it isn't a test.</span> <span data-dc-tpl="123" style="color: rgb(98, 92, 76);">And, it's not happening.</span></span></div>
+          <div data-dc-tpl="124" style="display: flex; gap: 10px;"><span data-dc-tpl="125" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); flex: 0 0 auto;">L7</span><span data-dc-tpl="126" style="font-size: 12px; line-height: 1.45;"><span data-dc-tpl="127" style="color: rgb(32, 30, 23);">Every AI critique states a consequence.</span> <span data-dc-tpl="128" style="color: rgb(98, 92, 76);">No defined outcome, no impact.</span></span></div>
+          <div data-dc-tpl="129" style="display: flex; gap: 10px;"><span data-dc-tpl="130" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); flex: 0 0 auto;">L8</span><span data-dc-tpl="131" style="font-size: 12px; line-height: 1.45;"><span data-dc-tpl="132" style="color: rgb(32, 30, 23);">We never delete. We correct and file the original.</span> <span data-dc-tpl="133" style="color: rgb(98, 92, 76);">You can't fix a mistake you didn't record.</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div data-dc-tpl="134" style="margin-bottom: 8px; display: flex; align-items: center; gap: 12px;"><span data-dc-tpl="135" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">stage 0 / once per client</span><span data-dc-tpl="136" style="flex: 1 1 0%; height: 1px; background: rgb(205, 197, 178);"></span></div>
+    <div data-dc-tpl="137" style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 6px;">
+      <div data-dc-tpl="138" style="flex: 1 1 0%; min-width: 240px; display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23);">
+        <div data-dc-tpl="139" style="width: 6px; background: rgb(32, 30, 23);"></div>
+        <div data-dc-tpl="140" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+          <div data-dc-tpl="141" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="142" style="font-size: 15px; font-weight: 600;">The offer</span><span data-dc-tpl="143" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">0.1</span></div>
+          <div data-dc-tpl="144" style="font-size: 12px; color: rgb(98, 92, 76);">What they sell, and every claim we're allowed to make</div>
+          <div data-dc-tpl="145" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Human</div>
+          
+        </div>
+      </div>
+      <div data-dc-tpl="146" style="flex: 1 1 0%; min-width: 240px; display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23);">
+        <div data-dc-tpl="147" style="width: 6px; background: rgb(32, 30, 23);"></div>
+        <div data-dc-tpl="148" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+          <div data-dc-tpl="149" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="150" style="font-size: 15px; font-weight: 600;">The rubric</span><span data-dc-tpl="151" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">0.2</span></div>
+          <div data-dc-tpl="152" style="font-size: 12px; color: rgb(98, 92, 76);">Who it's for, and who it's never for</div>
+          <div data-dc-tpl="153" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px;">Human</div>
+          
+        </div>
+      </div>
+      <div data-dc-tpl="154" style="flex: 1 1 0%; min-width: 240px; display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23);">
+        <div data-dc-tpl="155" style="width: 6px; background: rgb(166, 85, 47);"></div>
+        <div data-dc-tpl="156" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+          <div data-dc-tpl="157" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="158" style="font-size: 15px; font-weight: 600;">Client's voice</span><span data-dc-tpl="159" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">0.3</span></div>
+          <div data-dc-tpl="160" style="font-size: 12px; color: rgb(98, 92, 76);">How the client writes, and what they'd never say</div>
+          <div data-dc-tpl="161" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(166, 85, 47);">Claude Opus 4.8</div>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <div data-dc-tpl="162" data-plate="" style="position: relative;">
+
+      
+      <div data-dc-tpl="163" style="margin-bottom: 6px; display: flex; align-items: center; gap: 12px;"><span data-dc-tpl="164" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">per person / from here down</span><span data-dc-tpl="165" style="flex: 1 1 0%; height: 1px; background: rgb(205, 197, 178);"></span><span data-dc-tpl="166" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">the owner changes hands every stage</span></div>
+
+      
+      <div data-dc-tpl="167" style="width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; padding-top: 8px;">
+
+        <div data-dc-tpl="168" style="width: 2px; height: 20px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="169" data-stage="1" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px; position: relative;">
+          <div data-dc-tpl="170" style="width: 6px; background: rgb(138, 132, 119);"></div>
+          <div data-dc-tpl="171" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="172" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="173" style="font-size: 15px; font-weight: 600;">The list</span><span data-dc-tpl="174" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">01</span></div>
+            <div data-dc-tpl="175" style="font-size: 12px; color: rgb(98, 92, 76);">Names in, plus the relationship and function tags</div>
+            <div data-dc-tpl="176" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 132, 119);">Python</div>
+            <div data-dc-tpl="177" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · N rows in, N rows out. No silent drops.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="178" style="width: 2px; height: 24px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="179" style="width: 100%; display: flex; justify-content: center; position: relative;">
+          <div data-dc-tpl="180" data-stage="2" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+            <div data-dc-tpl="181" style="width: 6px; display: flex; flex-direction: column;"><div data-dc-tpl="182" style="flex: 1 1 0%; background: rgb(138, 132, 119);"></div><div data-dc-tpl="183" style="flex: 1 1 0%; background: rgb(168, 129, 47);"></div><div data-dc-tpl="184" style="flex: 1 1 0%; background: rgb(203, 154, 114);"></div></div>
+            <div data-dc-tpl="185" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+              <div data-dc-tpl="186" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="187" style="font-size: 15px; font-weight: 600;">First cut</span><span data-dc-tpl="188" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">02</span></div>
+              <div data-dc-tpl="189" style="font-size: 12px; color: rgb(98, 92, 76);">Pass, kill, or gray. No score.</div>
+              <div data-dc-tpl="190" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 132, 119);">Python + Claude Haiku 4.5 + Exa</div>
+              <div data-dc-tpl="191" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · right human and right place, before a dollar is spent.</div>
+            </div>
+          </div>
+          <div data-dc-tpl="192" style="position: absolute; left: calc(50% + 176px); top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 7px; padding-left: 8px; white-space: nowrap;">
+            <div data-dc-tpl="193" style="width: 26px; height: 2px; background: rgb(124, 117, 99); flex: 0 0 auto;"></div>
+            <div data-dc-tpl="194" style="width: 0px; height: 0px; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 7px solid rgb(124, 117, 99); flex: 0 0 auto;"></div>
+            <span data-dc-tpl="195" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(32, 30, 23); line-height: 1.25;">not contacted<br data-dc-tpl="196">most of the list</span>
+          </div>
+        </div>
+        <div data-dc-tpl="197" style="width: 2px; height: 24px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="198" data-stage="3" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="199" style="width: 6px; background: rgb(168, 129, 47);"></div>
+          <div data-dc-tpl="200" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="201" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="202" style="font-size: 15px; font-weight: 600;">Collect all public content</span><span data-dc-tpl="203" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">03</span></div>
+            <div data-dc-tpl="204" style="font-size: 12px; color: rgb(98, 92, 76);">Everything they've said in public</div>
+            <div data-dc-tpl="205" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(168, 129, 47);">Exa deep search</div>
+            <div data-dc-tpl="206" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · collection only. No reading yet.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="207" style="width: 2px; height: 16px; background: rgb(124, 117, 99);"></div>
+        
+        <div data-dc-tpl="208" style="display: flex; gap: 14px; width: 344px;">
+          <div data-dc-tpl="209" data-stage="3.1" style="flex: 1 1 0%; display: flex; background: rgb(245, 241, 232); border: 1px solid rgb(110, 104, 88);">
+            <div data-dc-tpl="210" style="width: 5px; background: rgb(138, 132, 119);"></div>
+            <div data-dc-tpl="211" style="padding: 9px 11px; display: flex; flex-direction: column; gap: 3px; flex: 1 1 0%;">
+              <div data-dc-tpl="212" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="213" style="font-size: 12px; font-weight: 600;">Sufficient data?</span><span data-dc-tpl="214" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">3.1</span></div>
+              <div data-dc-tpl="215" style="font-size: 12px; color: rgb(98, 92, 76); line-height: 1.3;">Variety, not volume</div>
+            </div>
+          </div>
+          <div data-dc-tpl="216" data-stage="3.2" style="flex: 1 1 0%; display: flex; background: rgb(245, 241, 232); border: 1px solid rgb(110, 104, 88);">
+            <div data-dc-tpl="217" style="width: 5px; display: flex; flex-direction: column;"><div data-dc-tpl="218" style="flex: 1 1 0%; background: rgb(138, 132, 119);"></div><div data-dc-tpl="219" style="flex: 1 1 0%; background: rgb(166, 85, 47);"></div></div>
+            <div data-dc-tpl="220" style="padding: 9px 11px; display: flex; flex-direction: column; gap: 3px; flex: 1 1 0%;">
+              <div data-dc-tpl="221" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="222" style="font-size: 12px; font-weight: 600;">Who wrote it?</span><span data-dc-tpl="223" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">3.2</span></div>
+              <div data-dc-tpl="224" style="font-size: 12px; color: rgb(98, 92, 76); line-height: 1.3;">Their hand, or a ghostwriter's</div>
+            </div>
+          </div>
+        </div>
+        <div data-dc-tpl="225" style="width: 2px; height: 24px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="226" data-stage="4" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="227" style="width: 6px; background: rgb(166, 85, 47);"></div>
+          <div data-dc-tpl="228" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="229" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="230" style="font-size: 15px; font-weight: 600;">Linguistic model</span><span data-dc-tpl="231" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">04</span></div>
+            <div data-dc-tpl="232" style="font-size: 12px; color: rgb(98, 92, 76);">How they say it</div>
+            <div data-dc-tpl="233" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(166, 85, 47);">Claude Opus 4.8</div>
+            <div data-dc-tpl="234" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · absence detection: what they never say.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="235" style="display: flex; align-items: center; gap: 8px; height: 26px;"><div data-dc-tpl="236" style="width: 2px; height: 100%; background: rgb(124, 117, 99);"></div><span data-dc-tpl="237" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">04 and 05 run blind to each other</span></div>
+
+        
+        <div data-dc-tpl="238" data-stage="5" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="239" style="width: 6px; background: rgb(74, 106, 143);"></div>
+          <div data-dc-tpl="240" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="241" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="242" style="font-size: 15px; font-weight: 600;">World view model</span><span data-dc-tpl="243" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">05</span></div>
+            <div data-dc-tpl="244" style="font-size: 12px; color: rgb(98, 92, 76);">What they mean when they say it</div>
+            <div data-dc-tpl="245" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(74, 106, 143);">Gemini 3.1 Pro</div>
+            <div data-dc-tpl="246" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · no claim without a source.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="247" style="width: 2px; height: 24px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="248" data-stage="6" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="249" style="width: 6px; background: rgb(113, 62, 41);"></div>
+          <div data-dc-tpl="250" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="251" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="252" style="font-size: 15px; font-weight: 600;">Cognitive model</span><span data-dc-tpl="253" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">06</span></div>
+            <div data-dc-tpl="254" style="font-size: 12px; color: rgb(98, 92, 76);">How they think about it</div>
+            <div data-dc-tpl="255" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(113, 62, 41);">Claude Fable 5</div>
+            <div data-dc-tpl="256" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · confidence from independent sources.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="257" style="width: 2px; height: 24px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="258" data-stage="7" style="display: flex; background: rgb(248, 245, 238); border: 2px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="259" style="width: 8px; background: rgb(47, 112, 104);"></div>
+          <div data-dc-tpl="260" style="padding: 13px 16px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="261" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="262" style="font-size: 15px; font-weight: 600;">Fact Checker</span><span data-dc-tpl="263" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">07</span></div>
+            <div data-dc-tpl="264" style="font-size: 12px; color: rgb(98, 92, 76);">A rival LLM verifies all claims</div>
+            <div data-dc-tpl="265" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(47, 112, 104);">GPT-5.4</div>
+            <div data-dc-tpl="266" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · every correction links to a source.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="267" style="width: 344px; border: 1px dashed rgb(166, 47, 34); background: rgb(248, 245, 238); padding: 10px 14px; display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
+          <div data-dc-tpl="268" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(166, 47, 34);">what it catches</div>
+          <div data-dc-tpl="269" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(166, 47, 34); line-height: 1.4;">unverified items · projections · quotability bias · smoothed contradiction · cascading errors</div>
+          <div data-dc-tpl="270" style="font-size: 12px; color: rgb(98, 92, 76); line-height: 1.35;">All corrections are marked and preserved.</div>
+        </div>
+        <div data-dc-tpl="271" style="width: 2px; height: 24px; background: rgb(124, 117, 99); margin-top: 10px;"></div>
+
+        
+        <div data-dc-tpl="272" style="width: 100%; display: flex; justify-content: center; position: relative;">
+          <div data-dc-tpl="273" data-stage="8" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+            <div data-dc-tpl="274" style="width: 6px; background: rgb(166, 85, 47);"></div>
+            <div data-dc-tpl="275" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+              <div data-dc-tpl="276" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="277" style="font-size: 15px; font-weight: 600;">Go/no-go list</span><span data-dc-tpl="278" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">08</span></div>
+              <div data-dc-tpl="279" style="font-size: 12px; color: rgb(98, 92, 76);">If the data says no, they go</div>
+              <div data-dc-tpl="280" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(166, 85, 47);">Claude Opus 4.8</div>
+              
+            </div>
+          </div>
+          <div data-dc-tpl="281" style="position: absolute; left: calc(50% + 176px); top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 7px; padding-left: 8px; white-space: nowrap;">
+            <div data-dc-tpl="282" style="width: 26px; height: 2px; background: rgb(32, 30, 23); flex: 0 0 auto;"></div>
+            <div data-dc-tpl="283" style="width: 0px; height: 0px; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 7px solid rgb(32, 30, 23); flex: 0 0 auto;"></div>
+            <span data-dc-tpl="284" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(32, 30, 23); font-weight: 600; line-height: 1.25;">the real exit<br data-dc-tpl="285">with reasons</span>
+          </div>
+        </div>
+
+        
+        <div data-dc-tpl="286" data-register="" style="width: 100%; max-width: 640px; border: 2px solid rgb(32, 30, 23); background: rgb(248, 245, 238); margin: 26px 0px;">
+          <div data-dc-tpl="287" style="border-bottom: 1px solid rgb(32, 30, 23); padding: 11px 16px; display: flex; justify-content: space-between; align-items: baseline;">
+            <span data-dc-tpl="288" style="font-size: 15px; font-weight: 600;">The do-not-chase register</span>
+            <span data-dc-tpl="289" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">a product, not a byproduct</span>
+          </div>
+          <div data-dc-tpl="290" style="padding: 6px 16px 4px;">
+            <div data-dc-tpl="291" data-reg="2" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 9px 0px; border-bottom: 1px solid rgb(225, 218, 201);">
+              <span data-dc-tpl="292" style="font-size: 12px;">Below the cut</span>
+              <span data-dc-tpl="293" style="display: flex; gap: 14px; align-items: baseline;"><span data-dc-tpl="294" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">from 02</span><span data-dc-tpl="295" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(32, 30, 23); min-width: 24px; text-align: right;"><span class="sc-interp">0</span></span></span>
+            </div>
+            <div data-dc-tpl="296" data-reg="8" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 9px 0px;">
+              <span data-dc-tpl="297" style="font-size: 12px;">Carries the problem, cannot act</span>
+              <span data-dc-tpl="298" style="display: flex; gap: 14px; align-items: baseline;"><span data-dc-tpl="299" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">from 08</span><span data-dc-tpl="300" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(32, 30, 23); min-width: 24px; text-align: right;"><span class="sc-interp">0</span></span></span>
+            </div>
+          </div>
+          <div data-dc-tpl="301" style="border-top: 1px solid rgb(32, 30, 23); padding: 10px 16px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(98, 92, 76); line-height: 1.4;">illustrative · of a 1,000-name list, about 30 finish. more exits than finishes, by design.</div>
+        </div>
+
+        <div data-dc-tpl="302" style="width: 2px; height: 8px; background: rgb(179, 171, 152);"></div>
+
+        
+        <div data-dc-tpl="303" data-stage="9" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="304" style="width: 6px; background: rgb(166, 85, 47);"></div>
+          <div data-dc-tpl="305" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="306" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="307" style="font-size: 15px; font-weight: 600;">The tactical assessment</span><span data-dc-tpl="308" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">09</span></div>
+            <div data-dc-tpl="309" style="font-size: 12px; color: rgb(98, 92, 76);">What to say, and why it lands</div>
+            <div data-dc-tpl="310" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(166, 85, 47);">Claude Opus 4.8</div>
+            <div data-dc-tpl="311" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · the lineup: pick the target from five decoys.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="312" style="width: 2px; height: 24px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="313" data-stage="10" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="314" style="width: 6px; background: rgb(166, 85, 47);"></div>
+          <div data-dc-tpl="315" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="316" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="317" style="font-size: 15px; font-weight: 600;">Hyper-targeted content</span><span data-dc-tpl="318" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">10</span></div>
+            <div data-dc-tpl="319" style="font-size: 12px; color: rgb(98, 92, 76);">Messaging built from their cognitive profile</div>
+            <div data-dc-tpl="320" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(166, 85, 47);">Claude Opus 4.8, new instance</div>
+            <div data-dc-tpl="321" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · bracket integrity. character limits respected.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="322" style="width: 2px; height: 16px; background: rgb(124, 117, 99);"></div>
+        <div data-dc-tpl="323" data-gallery="" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 640px;">
+          <div data-dc-tpl="324" data-stage="g1" style="flex: 1 1 0%; min-width: 112px; border: 1px solid rgb(32, 30, 23); background: rgb(245, 241, 232); padding: 9px 11px;"><div data-dc-tpl="325" style="font-size: 12px; font-weight: 600; margin-bottom: 3px;">Email</div><div data-dc-tpl="326" style="font-size: 12px; color: rgb(98, 92, 76); line-height: 1.3;">Written to their emotional frame</div></div>
+          <div data-dc-tpl="327" data-stage="g2" style="flex: 1 1 0%; min-width: 112px; border: 1px solid rgb(32, 30, 23); background: rgb(245, 241, 232); padding: 9px 11px;"><div data-dc-tpl="328" style="font-size: 12px; font-weight: 600; margin-bottom: 3px;">LinkedIn message</div><div data-dc-tpl="329" style="font-size: 12px; color: rgb(98, 92, 76); line-height: 1.3;">Survives the feed</div></div>
+          <div data-dc-tpl="330" data-stage="g3" style="flex: 1 1 0%; min-width: 112px; border: 1px solid rgb(32, 30, 23); background: rgb(245, 241, 232); padding: 9px 11px;"><div data-dc-tpl="331" style="font-size: 12px; font-weight: 600; margin-bottom: 3px;">Connection note</div><div data-dc-tpl="332" style="font-size: 12px; color: rgb(98, 92, 76); line-height: 1.3;">Built to be noticed</div></div>
+          <div data-dc-tpl="333" data-stage="g4" style="flex: 1 1 0%; min-width: 112px; border: 1px solid rgb(32, 30, 23); background: rgb(245, 241, 232); padding: 9px 11px;"><div data-dc-tpl="334" style="font-size: 12px; font-weight: 600; margin-bottom: 3px;">Ads</div><div data-dc-tpl="335" style="font-size: 12px; color: rgb(98, 92, 76); line-height: 1.3;">4 versions · tightens the noose</div></div>
+          <div data-dc-tpl="336" data-stage="g5" style="flex: 1 1 0%; min-width: 112px; border: 1px solid rgb(32, 30, 23); background: rgb(245, 241, 232); padding: 9px 11px;"><div data-dc-tpl="337" style="font-size: 12px; font-weight: 600; margin-bottom: 3px;">Brochure</div><div data-dc-tpl="338" style="font-size: 12px; color: rgb(98, 92, 76); line-height: 1.3;">For their cognitive profile, in their register</div></div>
+        </div>
+        <div data-dc-tpl="339" style="width: 2px; height: 24px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="340" data-stage="11" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="341" style="width: 6px; display: flex; flex-direction: column;"><div data-dc-tpl="342" style="flex: 1 1 0%; background: rgb(138, 132, 119);"></div><div data-dc-tpl="343" style="flex: 1 1 0%; background: rgb(74, 106, 143);"></div></div>
+          <div data-dc-tpl="344" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="345" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="346" style="font-size: 15px; font-weight: 600;">Editorial and copy analysis</span><span data-dc-tpl="347" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">11</span></div>
+            <div data-dc-tpl="348" style="font-size: 12px; color: rgb(98, 92, 76);">Two tests: i. usage violations, ii. poor writing</div>
+            <div data-dc-tpl="349" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 132, 119);">Python + Gemini 3.1 Pro</div>
+            <div data-dc-tpl="350" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · no style errors, then a reading for where the prose goes dead.</div>
+          </div>
+        </div>
+        <div data-dc-tpl="351" style="width: 2px; height: 24px; background: rgb(124, 117, 99);"></div>
+
+        
+        <div data-dc-tpl="352" data-stage="12" style="display: flex; background: rgb(248, 245, 238); border: 1px solid rgb(32, 30, 23); width: 344px;">
+          <div data-dc-tpl="353" style="width: 6px; display: flex; flex-direction: column;"><div data-dc-tpl="354" style="flex: 1 1 0%; background: rgb(138, 132, 119);"></div><div data-dc-tpl="355" style="flex: 1 1 0%; background: rgb(94, 87, 74);"></div></div>
+          <div data-dc-tpl="356" style="padding: 12px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1 1 0%;">
+            <div data-dc-tpl="357" style="display: flex; justify-content: space-between; align-items: baseline;"><span data-dc-tpl="358" style="font-size: 15px; font-weight: 600;">The record of it all</span><span data-dc-tpl="359" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">12</span></div>
+            <div data-dc-tpl="360" style="font-size: 12px; color: rgb(98, 92, 76);">A CRM and history of each person's progression</div>
+            <div data-dc-tpl="361" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 132, 119);">Python + Postgres</div>
+            <div data-dc-tpl="362" style="border-top: 1px solid rgb(225, 218, 201); margin-top: 2px; padding-top: 6px; font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94); line-height: 1.35;">test · the flip rate, logged forever.</div>
+          </div>
+        </div>
+
+        <div data-dc-tpl="363" style="width: 2px; height: 16px; background: rgb(124, 117, 99);"></div>
+        <div data-dc-tpl="364" style="display: flex; align-items: center; gap: 9px; padding-bottom: 4px;">
+          <div data-dc-tpl="365" style="width: 0px; height: 0px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 7px solid rgb(124, 117, 99);"></div>
+          <span data-dc-tpl="366" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">learning loop · feeds back to setup. the overrides are the training data.</span>
+        </div>
+
+      </div>
+
+      
+      <div data-dc-tpl="367" style="position: absolute; inset: 0px; pointer-events: none; z-index: 6;"></div>
+    </div>
+
+    
+    <div data-dc-tpl="368" style="display: flex; justify-content: flex-end; margin-top: 44px;">
+      <div data-dc-tpl="369" style="border: 1px solid rgb(32, 30, 23); display: grid; grid-template-columns: auto auto auto;">
+        <div data-dc-tpl="370" style="padding: 9px 16px; border-right: 1px solid rgb(32, 30, 23); border-bottom: 1px solid rgb(32, 30, 23);"><div data-dc-tpl="371" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">project</div><div data-dc-tpl="372" style="font-size: 12px;">The Boswell Engine</div></div>
+        <div data-dc-tpl="373" style="padding: 9px 16px; border-right: 1px solid rgb(32, 30, 23); border-bottom: 1px solid rgb(32, 30, 23);"><div data-dc-tpl="374" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">engineer</div><div data-dc-tpl="375" style="font-size: 12px;">Atma</div></div>
+        <div data-dc-tpl="376" style="padding: 9px 16px; border-bottom: 1px solid rgb(32, 30, 23);"><div data-dc-tpl="377" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">drawing</div><div data-dc-tpl="378" style="font-size: 12px;">Engine Architecture</div></div>
+        <div data-dc-tpl="379" style="padding: 9px 16px; border-right: 1px solid rgb(32, 30, 23);"><div data-dc-tpl="380" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">rev</div><div data-dc-tpl="381" style="font-size: 12px;">v0.5</div></div>
+        <div data-dc-tpl="382" style="padding: 9px 16px; border-right: 1px solid rgb(32, 30, 23);"><div data-dc-tpl="383" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">date</div><div data-dc-tpl="384" style="font-size: 12px;">2026-07-20</div></div>
+        <div data-dc-tpl="385" style="padding: 9px 16px;"><div data-dc-tpl="386" style="font-family: &quot;IBM Plex Mono&quot;, monospace; font-size: 12px; color: rgb(138, 124, 94);">for</div><div data-dc-tpl="387" style="font-size: 12px;">internal use</div></div>
+      </div>
+    </div>
+
+  </div></div></div></div>
+
+
+
+</div>
+<div id="__bundler_loading">Unpacking...</div>
 
   <script>
     
