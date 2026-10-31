@@ -31,3 +31,13 @@
 # files; this makes it explicit and content-based (size + mtime), and the FTP deploy only
 # re-uploads files that actually changed, so an unchanged page keeps its fingerprint.
 FileETag MTime Size
+
+# ---- Force HTTPS and the bare hostname (website_ops audit 2026-10-31) ----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Keep AutoSSL certificate validation reachable over http
+  RewriteRule ^\.well-known/acme-challenge/ - [L]
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^boswell\.atma\.marketing$ [NC]
+  RewriteRule ^ https://boswell.atma.marketing%{REQUEST_URI} [L,R=301]
+</IfModule>
